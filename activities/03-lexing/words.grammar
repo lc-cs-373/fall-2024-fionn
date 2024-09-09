@@ -1,3 +1,4 @@
 # Grammar file
 skip WS '\s+'
 token WORD '[a-zA-Z]+'
+token NUMBER '[0-9]+'
