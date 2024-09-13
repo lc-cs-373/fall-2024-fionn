@@ -8,3 +8,5 @@ license.
 
 You will find the syllabus [here](syllabus.md) and a cheat sheet
 [here](cheatsheet.md).
+
+# To pull from the main branch, use: git fetch upstream, git merge upstream/main
