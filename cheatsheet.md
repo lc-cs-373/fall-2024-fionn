@@ -5,6 +5,20 @@
 * Class code: gfubobn
 * https://classroom.google.com/c/Njc0MDIwMDA1NTky
 
+## Git
+
+### Concepts
+
+* commit
+* branch
+* merge
+
+### Commands
+
+* `git status`
+* `git log --oneline`
+* `git pull`
+
 ## GitHub
 
 Your forked copy of the official class Git repository should be accessible
@@ -44,3 +58,19 @@ The website is https://gitpod.io.
 ### Version number
 
 * `plcc --version`
+
+### Build
+
+* `plccmk -c <GRAMMAR-FILE>`
+
+### Scan
+
+* `scan`
+* `scan < <INPUT-FILE>`
+
+### Parse
+
+* `parse`
+* `parse < <INPUT-FILE>`
+* `parse -t`
+* `parse -t -n`

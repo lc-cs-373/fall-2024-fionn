@@ -1,4 +1,4 @@
-# CS351 - Assignment a1
+# CS 373 - Assignment a1
 
 ## QUESTION 1
 

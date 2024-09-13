@@ -1,0 +1,8 @@
+skip WS '\s+'
+token PERIOD '\.'
+token WORD '\w+'
+%
+<sentence> ::= <subject> <verb> <noun> PERIOD
+<subject> ::= <noun>
+<verb> ::= WORD
+<noun> ::= WORD
