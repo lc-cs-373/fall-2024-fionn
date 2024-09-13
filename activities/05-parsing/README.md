@@ -14,7 +14,7 @@ sentence.  Feel free to inspect its contents.  To generate a parser for this
 grammar, run `plccmk` on the file.  You should see something like the following.
 
 ```bash
-$ plccmk grammar
+$ plccmk sentence.grammar
 Nonterminals (* indicates start symbol):
   <noun>
  *<sentence>
