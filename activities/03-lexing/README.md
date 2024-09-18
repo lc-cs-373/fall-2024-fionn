@@ -119,7 +119,7 @@ Recompile the grammar. It's always a good idea to delete the Java folder before
 you do.
 
 ```bash
-$ rm -rm Java
+$ rm -rf Java
 ```
 
 This ensures that you always get the latest versions of all the Java and `class`
