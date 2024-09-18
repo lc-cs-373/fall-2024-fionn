@@ -1,0 +1,10 @@
+skip WS '\s+'
+token NUM '\d+'
+token TAG '[a-z]+'
+token LPAR '\('
+token RPAR '\)'
+
+%
+
+<tree>:Number ::= NUM
+<tree>:Node ::= LPAR TAG <tree>:left <tree>:right RPAR
