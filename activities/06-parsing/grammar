@@ -1,0 +1,12 @@
+skip WS '\s+'
+token NUM '\d+'
+token LEFTBRACKET '\['
+token RIGHTBRACKET '\]'
+token COMMA ','
+
+%
+
+<lon> ::= LEFTBRACKET <numbers> RIGHTBRACKET
+<numbers>:Space ::= 
+<numbers>:Number ::= NUM <numbers>
+<numbers>:Comma ::= COMMA <numbers>
