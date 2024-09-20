@@ -1,0 +1,19 @@
+skip WS '\s+'
+skip COMMENT '#[^\n]*'
+
+token ID '\w+'
+token THIS 'this'
+token THAT 'that'
+token THE 'the'
+token OTHER 'other'
+token THING 'thing'
+
+% 
+
+<q1> ::= <question>
+<question> ::= ID 
+             | THIS
+             | THAT
+             | THE
+             | OTHER 
+             | THING
