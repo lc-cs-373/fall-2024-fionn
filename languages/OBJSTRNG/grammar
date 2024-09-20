@@ -149,10 +149,10 @@ VAR '[A-Za-z\&\?\$][\w\?\&\$]*'
 <prim>:Lst2StrPrim   ::= LST2STROP
 <prim>:Str2LstPrim   ::= STR2LSTOP
 %
-include code
-include prim
-include envRef
-include val
-include list
-include class
-include ref
+%include code
+%include prim
+%include envRef
+%include val
+%include list
+%include class
+%include ref

@@ -84,8 +84,8 @@ VAR '[A-Za-z][\w?]*'
 <prim>:EQPrim   ::= EQP
 <prim>:NEPrim   ::= NEP
 %
-include code
-include prim
-include envRef
-include val
-include ref
+%include code
+%include prim
+%include envRef
+%include val
+%include ref

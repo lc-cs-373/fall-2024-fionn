@@ -153,11 +153,11 @@ VAR '[A-Za-z\&\?\$][\w\?\&\$]*'
 <prim>:AddFirstPrim ::= ADDFIRSTOP
 <prim>:LenPrim      ::= LENOP
 %
-include code
-include prim
-include envRef
-include val
-include list
-include class
-include ref
-include len
+%include code
+%include prim
+%include envRef
+%include val
+%include list
+%include class
+%include ref
+%include len

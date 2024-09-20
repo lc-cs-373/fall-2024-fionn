@@ -143,10 +143,10 @@ VAR '[A-Za-z\&\?\$][\w\?\&\$]*'
 <prim>:RestPrim  ::= RESTOP
 <prim>:AddFirstPrim  ::= ADDFIRSTOP
 %
-include code
-include prim
-include envRefCD
-include val
-include list
-include class
-include ref
+%include code
+%include prim
+%include envRefCD
+%include val
+%include list
+%include class
+%include ref

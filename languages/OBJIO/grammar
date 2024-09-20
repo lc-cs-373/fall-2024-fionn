@@ -154,10 +154,10 @@ VAR '[A-Za-z\&\?\$][\w\?\&\$]*'
 <prim>:AppendPrim    ::= APPENDOP
 <prim>:ToStringPrim  ::= TOSTRINGOP
 %
-include code
-include prim
-include env
-include val
-include list
-include class
-include ref
+%include code
+%include prim
+%include env
+%include val
+%include list
+%include class
+%include ref

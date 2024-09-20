@@ -46,4 +46,4 @@ import abcdatalog.ast.*;
 %%%
 
 # semantics
-include code
+%include code

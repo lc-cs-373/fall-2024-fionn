@@ -59,8 +59,8 @@ VAR '[A-Za-z][\w?]*'
 <prim>:ZeropPrim ::= ZEROP
 <prim>:ErrorPrim ::= ERROR
 %
-include code
-include prim
-include envRef
-include val
-include ref
+%include code
+%include prim
+%include envRef
+%include val
+%include ref

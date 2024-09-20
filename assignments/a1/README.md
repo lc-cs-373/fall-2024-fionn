@@ -4,11 +4,11 @@
 
 `a1/q1` contains the following starter files.
 
-- `grammar` - An empty file which you will modify.
+- `q1-grammar` - An empty file which you will modify.
 - `input.txt` - Sample input for the scanner. (Do not modify)
 - `expected.txt` - Expected output when scanner is given `input.txt`. (Do not modify)
 
-In `grammar`, write a lexical specification acceptable to PLCC that skips over
+In `q1-grammar`, write a lexical specification acceptable to PLCC that skips over
 whitespace and skips all characters from a '#' character to the end of the line.
 The lexical specification should accept the following strings as specific
 tokens:
@@ -76,7 +76,7 @@ thisthat the end99 12345xxx _!
 >
 > 2. Compile the grammar.
 >    ```bash
->    plccmk grammar
+>    plccmk q1-grammar
 >    ```
 >
 > 3. Test using manual input.
@@ -94,7 +94,7 @@ thisthat the end99 12345xxx _!
 
 ## QUESTION 2
 
-In `q2/grammar` write a lexical specification for PLCCs lexical specification.
+In `q2/q2-grammar` write a lexical specification for PLCCs lexical specification.
 We are getting "meta" here. We want a scanner that can identify the tokens for
 PLCC's lexical specification language. For example:
 
@@ -120,14 +120,13 @@ a Java signature for the constructor for the class:
 XXX(AAA aaa, BBB bbb, ...)
 ```
 
-Here XXX is the class name, and the instance variables are aaa of type AAA, bbb
-of type BBB, and so forth.
+Here `XXX` is the class name, and the instance variables are `aaa` of type
+`AAA`, `bbb` of type `BBB`, and so forth.
 
 ### ANSWER
 
-```
-Replace this line with your answer.
-```
+In a separate text file (e.g., `a1.txt`), write "QUESTION 3" followed by your
+answer (a single line) on its own line.
 
 ## QUESTION 4
 
@@ -139,9 +138,7 @@ Repeat the question above, except use the following grammar rule:
 
 ### ANSWER
 
-```
-Replace this line with your answer.
-```
+In `a1.txt`, write "QUESTION 4" followed your answer (a single line).
 
 ## QUESTION 5
 
@@ -153,9 +150,7 @@ Repeat the question above, except use the following grammar rule:
 
 ### ANSWER
 
-```
-Replace this line with your answer.
-```
+In `a1.txt`, write "QUESTION 5" followed your answer (a single line).
 
 ## QUESTION 6
 
@@ -175,13 +170,11 @@ explain your answer -- just give the corrected grammar rule.
 
 ### ANSWER
 
-```
-Replace this line with your answer.
-```
+In `a1.txt`, write "QUESTION 6" followed your answer (a single line).
 
 ## QUESTION 7
 
-In `q7/grammar`, define a grammar that generates a parser that accepts strings
+In `q7/q7-grammar`, define a grammar that generates a parser that accepts strings
 that only contain a balanced set of parentheses, and end in an at-sign.
 
 For example, the following are legal sentences in the proposed language.
@@ -202,7 +195,7 @@ The following are illegal sentences in the proposed language.
 ()
 ```
 
-`q7/grammar` contains a partial implementation of the language. So far, it
+`q7/q7-grammar` contains a partial implementation of the language. So far, it
 contains a complete lexical specification. Your job is to complete the syntactic
 specification.
 
@@ -241,7 +234,7 @@ The legal and illegal input files have been provided for your convenience in
 
 ## QUESTION 8
 
-Going meta again... In `q8/grammar`, build a grammar for PLCC's lexical
+Going meta again... In `q8/q8-grammar`, build a grammar for PLCC's lexical
 specification.  Please ensure that your grammar embodies the following
 structure.
 
@@ -251,7 +244,7 @@ structure.
 
 ## QUESTION 9
 
-Continuing from question 8, in `q9/grammar` add a semantic specification, that
+Continuing from question 8, in `q9/q9-grammar` add a semantic specification, that
 creates a pretty-printer for a lexical specification. Your pretty-printer will
 reproduce the original input without comments, and with any `token` keywords
 that were not present. For example, if the input was

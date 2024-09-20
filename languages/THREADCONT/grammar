@@ -61,9 +61,9 @@ VAR '[A-Za-z_][\w?]*'
 <prim>:Sub1Prim ::= SUB1OP
 <prim>:ZeropPrim ::= ZEROP
 %
-include code
-include prim
-include env
-include val
-include ref
-include cont
+%include code
+%include prim
+%include env
+%include val
+%include ref
+%include cont
