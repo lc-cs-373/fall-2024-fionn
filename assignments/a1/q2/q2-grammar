@@ -1,0 +1,15 @@
+skip WS '\s+'
+skip COMMENT '#\w+$'
+
+token SKIP 'skip.+$'
+token TOKEN 'token.+$'
+token DIVIDER '%'
+token NONTERM '<\w+>.+$'
+
+%
+
+<q2> ::= <solution>
+<solution>:Skipa ::= SKIP
+<solution>:Tokena ::= TOKEN
+<solution>:Dividera ::= DIVIDER
+<solution>:Nonterma ::= NONTERM
