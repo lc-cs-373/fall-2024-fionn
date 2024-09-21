@@ -1,19 +1,21 @@
 skip WS '\s+'
 skip COMMENT '#[^\n]*'
 
-token ID '\w+'
 token THIS 'this'
 token THAT 'that'
 token THE 'the'
 token OTHER 'other'
 token THING 'thing'
+token ERROR '!'
+token ID '\w+'
 
 % 
 
 <q1> ::= <question>
-<question> ::= ID 
-             | THIS
-             | THAT
-             | THE
-             | OTHER 
-             | THING
+<question>:Ida ::= ID 
+<question>:Thisa ::= THIS
+<question>:Thata ::= THAT
+<question>:Thea ::= THE
+<question>:Othera ::= OTHER
+<question>:Thinga ::= THING
+<question>:Errora ::= ERROR
