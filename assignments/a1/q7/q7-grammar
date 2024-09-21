@@ -10,4 +10,8 @@ token RP '\)'
 #
 # Here is a sketch of the first rule. Replace ... with something and
 # add more rules below it.
-<balanced> ::= ... AT
+<balanced> ::= <paren> AT
+<paren>:Main ::= LP <paren> RP <more>
+<paren>:Empty ::=
+<more>:Altmain ::= LP <more> RP <paren>
+<more>:Altempty ::=
