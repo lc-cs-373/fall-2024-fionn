@@ -16,8 +16,12 @@
 ### Commands
 
 * `git status`
-* `git log --oneline`
+* `git log --oneline --graph`
 * `git pull`
+* `git switch <BRANCH-NAME>`
+* `git switch -c <NEW-BRANCH-NAME>`
+* `git add <FILE>`
+* `git commit -m <MESSAGE>`
 
 ## GitHub
 
