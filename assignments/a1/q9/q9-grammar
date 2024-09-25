@@ -1,0 +1,9 @@
+skip WS '\s+'
+skip COMMENT '#\w+$'
+
+token TOKEN 'token.+$'
+
+%
+
+<q9> ::= <solution>
+<solution> ::= 

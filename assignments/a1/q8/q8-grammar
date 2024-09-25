@@ -8,7 +8,7 @@ token NONTERM '<\w+>.+$'
 
 %
 
-<q2> ::= <solution>
+<q8> ::= <solution>
 <solution>:Divider ::= DIVIDER
 <solution>:Nonterm ::= NONTERM
 <solution>:Comments ::= COMMENT
