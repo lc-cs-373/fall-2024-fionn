@@ -1,9 +1,16 @@
 skip WS '\s+'
-skip COMMENT '#\w+$'
+skip COMMENT '#.+$'
+skip DIVIDER '%'
+skip NONTERM '<\w+>.+$'
 
-token TOKEN 'token.+$'
+token SKIP 'skip.+$'
+token TOKEN '(token)?.([A-Z]).+$'
 
 %
 
 <q9> ::= <solution>
-<solution> ::= 
+<solution>:Divider ::= DIVIDER
+<solution>:Nonterm ::= NONTERM
+<solution>:Notcomments ::= <solution2>
+<solution2>:Skips ::= SKIP
+<solution2>:Notskips ::= TOKEN

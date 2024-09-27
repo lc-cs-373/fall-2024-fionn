@@ -1,8 +1,8 @@
 skip WS '\s+'
 
-token COMMENT '#\w+$'
+token COMMENT '#.+$'
 token SKIP 'skip.+$'
-token TOKEN 'token.+$'
+token TOKEN '(token)?(<A-Z>).+$'
 token DIVIDER '%'
 token NONTERM '<\w+>.+$'
 
