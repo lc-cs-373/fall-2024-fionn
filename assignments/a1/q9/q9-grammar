@@ -9,8 +9,5 @@ token TOKEN '(token)?.([A-Z]).+$'
 %
 
 <q9> ::= <solution>
-<solution>:Divider ::= DIVIDER
-<solution>:Nonterm ::= NONTERM
-<solution>:Notcomments ::= <solution2>
-<solution2>:Skips ::= SKIP
-<solution2>:Notskips ::= TOKEN
+<solution>:Skips ::= SKIP
+<solution>:Notskips ::= TOKEN
