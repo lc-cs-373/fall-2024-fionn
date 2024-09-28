@@ -1,0 +1,29 @@
+## QUESTION 3
+    <blah>:Goo ::= THIS <VAR> IS <silly>
+    
+    The main class is <blah> with subclass Goo.
+    The two variables are VAR and silly.
+    They will follow the below format:
+
+    Goo(VAR 'var', silly 'silly')
+
+## QUESTION 4
+    <many> **= THIS <rule> HAS MULTIPLE OCCURRENCES <OF> <stuff>
+
+    Class name is <many>, and **= implies repition.
+
+    many(rule 'rule', OF 'OF', stuff 'stuff')
+
+## QUESTION 5
+    <classes> ::= I AM TAKING <CSIT>c1 <CSIT>c2 AND <CSIT>c3
+
+    Class name is <classes>
+
+    classes(CSIT 'c1', CSIT 'c2', CSIT 'c3')
+
+## QUESTION 6
+    <VAR> := token <foo>
+
+    Corrected version:
+
+    <VAR> ::= token <foo>
