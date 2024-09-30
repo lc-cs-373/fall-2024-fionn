@@ -1,0 +1,36 @@
+# grammar for a list of whitespace-separated numbers
+
+skip WS '\s+'
+token NUM '\d+'
+token LEFTBRACKET '\['
+token RIGHTBRACKET '\]'
+token COMMA ','
+
+%
+
+<lon> ::= LEFTBRACKET <nums> RIGHTBRACKET
+<nums>:NumsNode ::= <NUM> <nums>
+<nums>:NumsNull ::=
+
+%
+
+Lon
+%%%
+public void $run() {
+    System.out.println("[ " + this.nums.toString() + "]");
+}
+%%%
+
+NumsNode
+%%%
+public String toString() {
+    return num.toString() + " " + nums.toString();
+}
+%%%
+
+NumsNull
+%%%
+public String toString() {
+    return "";
+}
+%%%

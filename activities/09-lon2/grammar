@@ -1,0 +1,31 @@
+# grammar for a list of whitespace-separated numbers (using the "**=" notation)
+
+skip WS '\s+'
+token NUM '\d+'
+token LBRACKET '\['
+token RBRACKET '\]'
+
+%
+
+<lon> ::= LBRACKET <nums> RBRACKET
+<nums> **= <NUM>
+
+%
+
+Lon
+%%%
+public String toString() {
+    return "[ " + this.nums.toString() + "]";
+}
+%%%
+
+Nums
+%%%
+public String toString() {
+    String s = "";
+    for (Token t : this.numList) {
+        s += t.toString() + " ";
+    }
+    return s;
+}
+%%%

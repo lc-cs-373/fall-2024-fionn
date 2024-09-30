@@ -1,0 +1,17 @@
+# grammar for a tree data type
+# - A tree is either a number or a pair of subtrees (left and right)
+#
+# examples:
+# - 3
+# - (bar 1 (foo 1 2))
+
+skip WS '\s+'
+token NUM '\d+'
+token TAG '[a-z]+'
+token LPAREN '\('
+token RPAREN '\)'
+
+%
+
+<tree>:TreeNum  ::= <NUM>
+<tree>:TreeNode ::= LPAREN TAG <tree>:leftNode <tree>:rightNode RPAREN
