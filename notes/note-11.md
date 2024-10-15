@@ -39,6 +39,7 @@ public class Bar {
         } // end of block
         System.out.println(x);
     }
+}
 ```
 
 This code displays `3`, `4`, and finally `3`.

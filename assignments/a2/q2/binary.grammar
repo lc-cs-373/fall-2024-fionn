@@ -1,0 +1,12 @@
+# BINARY
+# Lexical specification
+
+%
+
+# Syntactic specification
+<start> ::= <bits> NL
+<bits>  **= <bit>
+
+%
+
+# Semantic specification
