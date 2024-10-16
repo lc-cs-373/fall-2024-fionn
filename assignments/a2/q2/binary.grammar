@@ -1,12 +1,63 @@
 # BINARY
 # Lexical specification
+NL '\n'
+ZERO '0'
+ONE '1'
+# skip WHITESPACE '\s+' /*--- Include this if you alright with 101 101 = 45 ---*/
 
 %
 
 # Syntactic specification
-<start> ::= <bits> NL
-<bits>  **= <bit>
+<start> ::= <bit> NL
+<bit>:ValZero ::= <ZERO> <bit>
+<bit>:ValOne ::= <ONE> <bit>
+<bit>:ValNull ::= 
 
 %
 
 # Semantic specification
+Start
+%%%
+    public void $run() {
+        int m = bit.eval("");
+        System.out.println(m);
+    }
+%%%
+
+Bit
+%%%
+    public abstract int eval(String previousNum);
+%%%
+
+ValZero
+%%%
+    public int eval(String previousNum) {
+        return bit.eval(previousNum + "0");
+    }
+%%%
+
+ValOne
+%%%
+    public int eval(String previousNum) {
+        return bit.eval(previousNum + "1");
+    }
+%%%
+
+ValNull
+%%%
+    public int eval(String previousNum) {
+        // Runtime error exception
+        if (previousNum.length() == 0) {
+            throw new PLCCException("Please enter a binary number");
+        }
+
+        // Math for the binary value
+        int result = 0;
+        for (int i = 0; i < previousNum.length(); i++) {
+            if (previousNum.charAt(i) == '1') {
+                result += Math.pow(2, previousNum.length()-1-i);
+            }
+        }
+        return result;
+    }
+%%%

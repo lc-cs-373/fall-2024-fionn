@@ -29,23 +29,35 @@ Lon
         int minSoFar = Integer.parseInt(num.toString());
         return nums.min(minSoFar); // Get the overall minimum.
     }
+
+    public String toString() {
+        return num.toString() + nums.toString();
+    }
 %%%
 
 Nums
 %%%
     public abstract int min(int minSoFar);
+    public abstract String toString();
 %%%
 
 NumsNode
 %%%
     public int min(int minSoFar) {
-        return 0; // This is just a stub. Replace it with your implementation.
+        int previousMin = Math.min(minSoFar, Integer.parseInt(num.toString()));
+        return Math.min(previousMin, nums.min(previousMin)); // This is just a stub. Replace it with your implementation.
+    }
+    public String toString() {
+        return "";
     }
 %%%
 
 NumsNull
 %%%
     public int min(int minSoFar) {
-        return 0; // This is just a stub. Replace it with your implementation.
+        return Integer.MAX_VALUE; // This is just a stub. Replace it with your implementation.
+    }
+    public String toString() {
+        return "";
     }
 %%%
