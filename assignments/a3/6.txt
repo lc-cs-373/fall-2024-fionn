@@ -1,0 +1,9 @@
+let
+    x = 3
+    y = 5
+    z = 8
+in
+    +(x, +(y, z))
+
+Becomes:
+.proc(x, y, z) +(x, +(y, z)) (3, 5, 8)

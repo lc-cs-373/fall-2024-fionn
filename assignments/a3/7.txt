@@ -1,0 +1,10 @@
+let
+    x = 3
+in
+    let
+        y = 5
+    in
+        +(x, +(y, 2))
+
+Becomes:
+.proc(x) (.proc(y) +(x, +(y, 2)) (5)) (3)

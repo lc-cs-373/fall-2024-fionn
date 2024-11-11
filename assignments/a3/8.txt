@@ -1,0 +1,7 @@
+let
+    p = proc(t) add1(t)
+in
+    .p(4)
+
+Becomes:
+.proc(p) 
