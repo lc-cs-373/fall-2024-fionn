@@ -5,7 +5,7 @@
 # Lexical specification
 skip WHITESPACE '\s+'
 skip COMMENT '%.*'
-LIT '\d+'
+LIT '-?\d+'
 LPAREN '\('
 RPAREN '\)'
 COMMA ','
@@ -15,6 +15,7 @@ MULOP '\*'
 DIVOP '/'
 ADD1OP 'add1'
 SUB1OP 'sub1'
+NEGOP 'neg'
 ZEROP 'zero\?'
 VAR '[A-Za-z]\w*'
 %
@@ -31,6 +32,7 @@ VAR '[A-Za-z]\w*'
 <prim>:Add1Prim  ::= ADD1OP
 <prim>:Sub1Prim  ::= SUB1OP
 <prim>:ZeropPrim ::= ZEROP
+<prim>:NegPrim ::= NEGOP
 %
 %include code
 %include prim

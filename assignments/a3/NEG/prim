@@ -120,3 +120,19 @@ ZeropPrim
 
 %%%
 
+NegPrim
+%%%
+
+    public String toString() {
+		return "neg";
+    }
+
+    public Val apply(Val [] va) {
+		if (va.length != 1)
+			throw new PLCCException("one arguments expected");
+		int i0 = va[0].intVal().val;
+		int i1 = -1;
+		return new IntVal(i0 * i1);
+    }
+
+%%%
