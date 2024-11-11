@@ -101,6 +101,13 @@ ProcExp
     }
 %%%
 
+MacroExp
+%%%
+    public Val eval(Env env) {
+        return macro.makeMacro();
+    }
+%%%
+
 AppExp
 %%%
 
@@ -141,6 +148,13 @@ Proc
 %%%
     public Val makeClosure(Env env) {
         return new ProcVal(formals, exp, env);
+    }
+%%%
+
+Macro
+%%%
+    public Val makeMacro() {
+        return new MacroVal(formals, exp);
     }
 %%%
 
