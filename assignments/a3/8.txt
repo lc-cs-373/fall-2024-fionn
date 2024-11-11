@@ -4,4 +4,4 @@ in
     .p(4)
 
 Becomes:
-.proc(p) 
+.proc(p) (proc(t) add1(t) (p)) (4)
