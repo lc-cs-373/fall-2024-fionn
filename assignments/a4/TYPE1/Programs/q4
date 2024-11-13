@@ -1,0 +1,9 @@
+define compose = proc(f,g) proc(x) .f(.g(x))
+define inc = proc(x) add1(x)
+define sqr = proc(x) *(x,x)
+
+..compose(inc,sqr)(5) % => 26
+..compose(sqr,inc)(5) % => 36
+..compose(inc,inc)(5) % => 7
+..compose(sqr,sqr)(5) % => 625
+..compose(sqr,.compose(inc,inc))(5) % => 49
