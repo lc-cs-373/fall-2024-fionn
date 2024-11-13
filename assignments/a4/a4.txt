@@ -1,0 +1,38 @@
+QUESTION 1:
+
+    let
+        x = 3
+        f = proc(x) set x = 4
+    in {
+        .f(x);
+        x
+    }
+
+    SET: 3
+    REF: 4
+    NAME: 4
+    NEED: 4
+
+QUESTION 2:
+
+    let
+        x = 3
+        f = proc(x) { x; x; x }
+    in {
+        .f(set x = sub1(x));
+        x
+    }
+
+    SET: 2
+    REF: 2
+    NAME: 0
+    NEED: 2
+
+QUESTION 5:
+
+let
+    p = proc(f : [int => int]): [int => int] proc(x : int) : int .f(.f(x))
+    q = proc(t : int) : int *(t, t)
+in
+    .p(q)
+
