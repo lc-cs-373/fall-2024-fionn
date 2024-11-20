@@ -94,10 +94,10 @@ VAR '[A-Za-z][\w?]*'
 <prim>:OrPrim   ::= OROP
 <prim>:NotPrim  ::= NOTOP
 %
-include code
-include prim
-include env
-include val
-include ref
-include tenv
-include type
+%include code
+%include prim
+%include env
+%include val
+%include ref
+%include tenv
+%include type

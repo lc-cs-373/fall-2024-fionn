@@ -1,6 +1,6 @@
-define compose = proc(f,g) proc(x) .f(.g(x))
-define inc = proc(x) add1(x)
-define sqr = proc(x) *(x,x)
+define compose = proc(f : [int => int], g : [int => int]): [int => int] proc(x : int): int .f(.g(x)) 
+define inc = proc(x : int): int add1(x)
+define sqr = proc(x : int): int *(x,x)
 
 ..compose(inc,sqr)(5) % => 26
 ..compose(sqr,inc)(5) % => 36
