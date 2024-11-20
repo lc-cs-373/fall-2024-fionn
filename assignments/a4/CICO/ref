@@ -66,6 +66,7 @@ public class VarRef extends Ref {
 
   public void copyOut() {
       // FIXME LATER
+      ref.setRef(val);
   }
 
 }

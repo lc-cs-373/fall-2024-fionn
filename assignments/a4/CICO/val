@@ -78,7 +78,13 @@ public class ProcVal extends Val {
   public Val apply(List<Ref> refList) {
     Bindings bindings = new Bindings(formals.varList, refList);
     Env nenv = env.extendEnvRef(bindings);
-    return body.eval(nenv);
+    
+    Val val = body.eval(nenv);
+    // FIXME: copyOut all of the references
+    for(Ref temp : refList) {
+      temp.copyOut();
+    }
+    return val;
   }
 
   public ProcVal procVal() {
