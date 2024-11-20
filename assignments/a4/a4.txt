@@ -42,4 +42,6 @@ QUESTION 6:
 
     if add1(0) then +(4, 5) else { let p = proc() : int 9 in p }
 
-    
+    There is a type error. First our IfExp needs a bool whereas add1(0) is an int. 
+    Though even if we switch "add1(0)" we still run into the issue of a type mismatch in the else section.
+    "type mismatch: [=>int] != int" an empty type being cast as an int is not equivalent to an int.
