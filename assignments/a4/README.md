@@ -189,7 +189,7 @@ public Ref evalRef(Env env) {
 ```
 
 You should be able to compile and run your modified language now, observing
-that the result has call-by-value semantics.  (Try is using the above example
+that the result has call-by-value semantics.  (Try it using the above example
 expression -- the value returned will be 6.)  So haven't we gone a bit
 backwards?
 

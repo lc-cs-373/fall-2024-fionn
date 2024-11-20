@@ -84,7 +84,7 @@ public Val eval(Env env) {
 }
 
 public Ref evalRef(Env env) {
-  return env.applyEnvRef(var);
+  return new VarRef(env.applyEnvRef(var));
 }
 
 public String toString() {

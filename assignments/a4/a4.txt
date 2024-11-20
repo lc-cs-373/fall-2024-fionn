@@ -30,9 +30,16 @@ QUESTION 2:
 
 QUESTION 5:
 
-let
-    p = proc(f : [int => int]): [int => int] proc(x : int) : int .f(.f(x))
-    q = proc(t : int) : int *(t, t)
-in
-    .p(q)
+    let
+        p = proc(f : [int => int]): [int => int] proc(x : int) : int .f(.f(x))
+        q = proc(t : int) : int *(t, t)
+    in
+        .p(q)
 
+    [int => int]
+
+QUESTION 6:
+
+    if add1(0) then +(4, 5) else { let p = proc() : int 9 in p }
+
+    
