@@ -1,0 +1,26 @@
+% Let's define a class that has a couple of fields.
+
+define ExampleClass = class
+    field x
+    field y
+end
+
+% Instantiate a couple.
+
+define o1 = new ExampleClass
+define o2 = new ExampleClass
+
+% Access its field through an EnvExp: <exp>e
+
+set <o1>x = 3
+set <o1>y = add1(<o1>x)
+
+% Demonstrate that objects do not share references for their fields.
+
+set <o2>x = sub1(<o1>x)
+set <o2>y = add1(<o1>y)
+
+<o1>x   % 3
+<o1>y   % 4
+<o2>x   % 2
+<o2>y   % 5

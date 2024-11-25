@@ -1,0 +1,35 @@
+% ClassVals can have fields and methods too.  These are called static members.
+% Static members must be bound to a value when the class is defined.
+
+define ExampleClass = class
+    % static members must be defined first.
+    static x = 3
+    static getX = proc() x
+
+    % static members are available to instance methods (but not the reverse).
+    field y
+    method init = proc() { set y = x ; this }
+end
+
+% ClassVals contain an environment with the static members bound to values
+% that result from evaluating their RHS expressions. So, static members
+% of a ClassVal can be accessed through an expression that evaluates to that
+% ClassVal. This example demonstrates accessing both a static method and
+% a static variable.
+
+set <ExampleClass>x = add1(.<ExampleClass>getX())    % 4
+
+% Static members are also availabe to instances of a class. But these static
+% members are shared among all instances of that class.
+
+define o1 = new ExampleClass
+
+<o1>y   % nil
+.<o1>init()
+<o1>y   % 4
+
+set <o1>x = 8
+
+define o2 = new ExampleClass
+.<o2>init()
+<o2>y   % 8

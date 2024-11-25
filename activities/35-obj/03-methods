@@ -1,0 +1,28 @@
+
+% Let's define getters and setters for our class.
+
+define ExampleClass = class
+    % Fields must be defined before methods.
+    field x
+    method getX = proc() x
+    method setX = proc(x) {set <this>x = x}
+end
+
+% Note the use of <this>x above. <this> expresses the current object's
+% environment, which allows us to refer to a field that has the same name as a
+% local variable (in this case a formal parameter).
+
+% Let's test run our new methods.
+
+define o1 = new ExampleClass
+define o2 = new ExampleClass
+
+% Calls formatted to emphasize the AppExp syntax.
+
+. <o1>setX (3)
+. <o2>setX (add1( . <o1>getX () ))
+
+% Format of these calls are more idiomatic.
+
+.<o1>getX()    % 3
+.<o2>getX()    % 4

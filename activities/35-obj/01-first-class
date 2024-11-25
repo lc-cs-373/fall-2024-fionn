@@ -1,0 +1,22 @@
+% Define a class using a ClassExp that evals to a ClassVal and bind (a VarRef
+% containing) that value to a symbol.
+
+define ExampleClass = class end
+
+% Notice that ExampleClass is a variable.  We can pass it to a proc (OBJ uses
+% value semantics).  Similarly we could "return" ClassVals from procs.  They are
+% said to be "first-class" classes (just like "first-class" functions; AKA
+% "higher-ordered" functions)!  Just to show that it is a ClassVal, let's
+% evaluate our variable for its value.
+
+ExampleClass    % displays "class"
+
+% Let's build a couple ObjectVals from our ClassVal using NewExp.
+
+define o1 = new ExampleClass
+define o2 = new ExampleClass
+
+% Convince ourselves they are values too.
+
+o1    % displays "object"
+o2    % displays "object"

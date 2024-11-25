@@ -1,0 +1,35 @@
+% Fields are initially bound to the NilVal.
+
+define ExampleClass = class
+    % Fields must be defined before methods.
+    field x
+end
+
+define o1 = new ExampleClass
+<o1>x   % nil
+
+% OBJ does not have a special constructor mechanism that is called through a
+% NewExp.  Instead, if we want to initialize an object, we define a method to do
+% so, and call that method right after we instantiate it.
+
+define ExampleClass = class
+    % Fields must be defined before methods.
+    field x
+    method init = proc() set x = 0
+end
+
+define o1 = new ExampleClass
+.<o1>init()
+<o1>x        % 0
+
+% If such a method returns the ObjectVal, then we can chain the call with the
+% NewExp.
+
+define ExampleClass = class
+    % Fields must be defined before methods.
+    field x
+    method init = proc() { set x = 0; this }
+end
+
+define o1 = .<new ExampleClass>init()
+<o1>x        % 0
