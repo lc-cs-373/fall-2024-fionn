@@ -1,0 +1,63 @@
+% Polymorphism is a hallmark of Object-Oriented programming.  When a method is
+% called on an object, if there are multiple methods with that same name defined
+% in different classes within that object's class hierarchy, we want the most
+% specific implementation of that method to be called.
+
+define A = class
+    method foo = proc() 0
+    method a = proc() .foo()
+end
+
+define B = class extends A
+    method foo = proc() 1
+end
+
+define o1 = new B
+.<o1>foo()   % 1 ... good!
+.<o1>a()     % 0 ... wait, what?!  That foo should dispatch to B's.
+
+% The problem is that foo in a() is resolved to A's foo.  This makes sense
+% because it's following static scoping rules.
+%
+% But to make polymorphism work, we want dynamic dispatching.  This means that
+% we want method calls to resolve to the most specific definition of a method
+% in the object's hierarchy.  (Don't confuse this with dynamic scoping, which
+% resolves free variables to the calling environment.)
+%
+% In some languages (e.g., Java and Python), dynamic dispatching is the default
+% behavior; in others it is not (C++).  Some languages give you a choice,
+% whether or not to dynamically dispatch (C++) and some don't (Java).
+%
+% In OBJ, dynamic dispatch is the default when calling a method on an object
+% from outside the object.  However, dynamic dispatch is not performed by
+% default when calling a method on the current object from inside that object.
+% The example above illustrates this fact.
+%
+% However, in both cases, the default behavior can be explicitly overridden.
+
+% We can force internal calls to dynamically dispatch by resolving the method
+% name in the context of the BASE OBJECT.  The base object is the object at the
+% bottom of the object environment chain.  OBJ binds a reserved symbol named
+% `self` that resolves to the base object.
+
+define C = class
+    method foo = proc() 0
+    method c = proc() .<self>foo()
+end
+
+define D = class extends C
+    method foo = proc() 1
+end
+
+define o3 = new D
+.<o3>c()    % 1 ... Wuhoo!  Dynamic Dispatching!
+
+% The real power of dynamic dispatching is that the base class is not aware of
+% subclasses.  Subclasses can be derived a hundred years from now that extend C
+% and provide a different implementation of foo, and c will call the new foo!
+
+% We can override dynamic dispatching when a method is called from the outside
+% by using `super` to reach up the environment chain and execute the exact
+% method you want.
+
+. <<o3>super>foo()  % 0

@@ -1,0 +1,63 @@
+% Most courses on Object-Oriented programming start by demonstrating
+% inheritance in the context of objects.  We'll start with static members,
+% because it's a simpler relationship.  A subclass extends its super class's
+% static environment.  This means that a subclass has access to all of the
+% static members of all of the ClassVals in its ancestry.
+
+define E = class
+    static e = 3
+end
+
+define F = class extends E
+    static f = 4
+end
+
+define G = class extends F
+    static g = 5
+end
+
+set <E>e = 6
+
+<F>e                % 6
+<F>f                % 4
+
+<G>e                % 6
+<G>f                % 4
+<G>g                % 5
+
+% Static-member initializing expressions have access to all static members
+% previously declared, and all static members in the static environment.
+
+define H = class extends G
+    static h1 = +(e, +(f, g))
+    static h2 = add1(h1)
+end
+
+<H>h1   % 15    remember we set e to 6
+<H>h2   % 16
+
+% So every class has a static environment that extends its parent class's
+% static environment.  This chains all the way up to the EnvClass.  The
+% EnvClass's static environment is the global top-level environment;
+% the one updated by `define` programs.
+
+define x = 7
+
+define I = class extends H
+    static i = x
+end
+
+<I>i    % 7
+
+% Static-member-initializing expressions do NOT have access to the environment
+% the ClassExp is evaluated in.  Wha-what?!?!
+
+define J = let
+    x = 8
+in
+    class extends I
+        static j = x   % x is evaluated in the static environment.
+                       % The static environment does not include let's bindings.
+    end
+
+<J>j    % 7 !!!

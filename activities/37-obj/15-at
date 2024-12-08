@@ -1,0 +1,19 @@
+% Since we now have EnvExp that allow us to evaluate an expression in an
+% environment, it might be nice to capture any environment into an object that
+% can be used with an EnvExp.
+%
+% To make this possible, we introduce the @ operator which evaluates to a value
+% that is the current environment.
+
+define x = 11
+define y = 42
+define z = 66
+define xyenv =
+    let
+        x = 3
+        y = 5
+    in
+        @       % AtExp
+<xyenv>x % => 3
+<xyenv>y % => 5
+<xyenv>z % => 66 (the `let` extends the top-level env)

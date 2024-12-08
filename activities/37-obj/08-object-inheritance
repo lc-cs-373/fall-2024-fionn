@@ -1,0 +1,25 @@
+% But what about fields and methods?  An object has all the methods and fields
+% defined in its class and all ancestor classes.  However, fields and methods
+% are not shared among instances.
+
+define H = class
+    field h
+    method setH = proc(h) set <this>h = h
+end
+
+define I = class extends H
+    field i
+    method setI = proc(i) set <this>i = i
+end
+
+define o4 = new I
+.<o4>setH(8)
+.<o4>setI(9)
+
+define o5 = new I
+.<o5>setH(10)
+<o5>h          % 10
+<o4>h          % 8
+
+% Essentially, an object is an environment that extends the environment of an
+% instance of its superclass with bindings containing its fields and methods.

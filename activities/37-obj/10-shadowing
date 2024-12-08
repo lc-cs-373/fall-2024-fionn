@@ -1,0 +1,45 @@
+% If a static or non-static member in a subclass has the same name as a member
+% in an ancestor, then subclass's member shadows the ancestor's.  So references
+% to the member from within the environment of an object of the subclass or the
+% subclass itself will resolve to the subclass's binding.
+
+define J = class
+    static x = 3
+    field y
+    method initJ = proc() {set y = x ; this}
+end
+
+define K = class extends J
+    static x = 4
+    field y
+    method init = proc() {
+        set y = 4 ;
+        .initJ() ;
+        this
+    }
+end
+
+define o5 = .<new K>init()
+<o5>y        % 4
+<K>x         % 4
+<o5>x        % 4
+<J>x         % 3
+
+% The shadowed member still exists.  It can be accessed in the subclass/object
+% environment by using either `super` (for the super object's environment), or
+% `superclass`.
+
+% An instance member can also shadow a static member in the same class.  In this
+% case, one can use `myclass` to access the shadowed member.
+
+define L = class
+    static z = 8
+    field z
+    method init = proc() {
+        set z = 4 ;
+        this
+    }
+end
+
+define o6 = .<new L>init()
+<o6>z

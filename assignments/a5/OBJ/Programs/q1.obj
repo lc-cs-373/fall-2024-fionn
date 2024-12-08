@@ -1,0 +1,15 @@
+define A = class
+  static x = 0
+end
+
+define B = class extends A
+  static x = 1
+
+  % Modify the next line to use A's x instead of B's.
+  % Don't use the symbol A, because we'll probably rename
+  % A later (terrible name), and we don't want to have to
+  % update this line when we do.
+  static y = x
+end
+
+% Add code to test your solution

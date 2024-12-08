@@ -1,0 +1,39 @@
+% A class that does not explicitly extend from another implicitly extends
+% EnvClass, whose static environment is the top-level environment.  That means
+% that all classes have access to the top level environment.
+
+define x = 3
+define c = class
+    static y = x
+    static f = proc() +(x, y)
+end
+
+.<c>f()  % 6
+
+% Since classes in OBJ are first-class, they can be defined within and returned
+% from a proc.  It might be useful to resolve symbols in its defined environment
+% rather than the static environment.
+
+% Recall `define x = 3` was issued previously.
+define d =
+    let
+        x = 5
+    in
+        class
+            static f = proc() x   % We want let's x ...
+        end
+
+.<d>f() % 3      ... but we get the top-level x.
+
+% So we introduce another special symbol !@ that represents a class's defined
+% environment.  It can only be used with EnvExp.
+
+define e =
+    let
+        x = 5
+    in
+        class
+            static f = proc() <!@>x   % We want the local x ...
+        end
+
+.<e>f() % 5       ... Wuhoo!

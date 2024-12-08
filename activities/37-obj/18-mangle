@@ -1,0 +1,35 @@
+% We've seen that we can define methods that return the object itself.  This was
+% useful to define constructor methods that can be called in conjunction with a
+% NewExp.
+%
+%       define A = class
+%           method init = proc() {... ; this}
+%       end
+%
+%       define o = .<new A>init()
+%
+% Developers may apply this strategy to all of their side effecting methods that
+% do not need to return a value.  This would allow them to chain side effecting
+% calls like so.
+%
+%   .<.<.<.<.<.<new summer>init()>add(1)>add(3)>add(5)>add(7)>show()
+%
+% To reign in this mess, OBJ introduces !< ... !> syntax to avoid the long chain
+% of .< at the front.  So now, you can write ...
+%
+%   !<new summer>init()>add(1)>add(3)>add(5)>add(7)>show()!>
+%
+% That said, this author suggests that you avoid both syntaxes and instead
+% separate your calls using the sequence operation.  It will also simplify your
+% method definitions.
+%
+%   let
+%       s = new summer
+%   in {
+%       .<s>init() ;
+%       .<s>add(1) ;
+%       .<s>add(3) ;
+%       .<s>add(5) ;
+%       .<s>add(7) ;
+%       .<s>show()
+%    }

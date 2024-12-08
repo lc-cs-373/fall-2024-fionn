@@ -1,0 +1,19 @@
+define x = 7
+
+define A = class
+  static x = 3
+  method foo = proc() .bar(x)
+  method bar = proc(x) *(x, x)
+end
+
+define B = let
+  x = 11
+in
+  class extends A
+    static x = 1
+
+    % Modify so one reference to x below refers to the one defined in let.
+    method foo = proc() +(x, x)
+  end
+
+% Add code to test your solution

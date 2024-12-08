@@ -1,0 +1,22 @@
+define A = class
+  static x = 0
+end
+
+define B = class extends A
+  static x = 1
+  field x
+
+  % Modify so field x of the most specific type is assigned value in the
+  % passed x.  In other words, a new subclass of B that declares an x, when
+  % foo is called on it, the subclass's x is modified, not the one in the
+  % B part of the object.
+  method foo = proc(x) set x = x
+end
+
+define C = class extends B
+  field x
+
+  method init = proc() { set x = 3 ; this }
+end
+
+% Add code to test your solution

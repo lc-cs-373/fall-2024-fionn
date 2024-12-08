@@ -1,0 +1,29 @@
+% OBJ supports single inheritance.
+
+% Below are several classes in a class hierarchy.  Indentation is used to help
+% the reader visualize the hierarchy.  Remember whitespace is ignored by OBJ.
+% It's the extends clauses that tell it which class extends from which.
+%
+% This example demonstrates that multiple classes can inherit from the same
+% class (B and C derive from A), and there can be a chain of inheritances
+% (D derives from B which derives from A).
+
+define A = class
+end
+
+    define B = class extends A
+    end
+
+        define D = class extends B
+        end
+
+    define C = class extends A
+    end
+
+% If a class does not explicitly extend another, it extends the EnvClass.  The
+% EnvClass is the root of all class hierarchies in OBJ.  We'll discuss EnvClass
+% more later.
+
+% Most modern programming languages have a class that is the root base
+% class of all classes/objects.  In Java, it's the `Object` class.
+% In Python it's `object`.

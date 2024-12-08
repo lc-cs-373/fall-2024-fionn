@@ -1,0 +1,17 @@
+% OBJ also introduces some expressions for printing the result of an expression.
+%
+%   display exp     % prints the result of exp
+%   newline         % prints a new line character
+%   display# exp    % prints the result of exp followed by a space
+
+let
+    x = 3
+    y = 5
+    z = 8
+in
+{ display x ; newline
+; display y ; newline
+; display z ; newline
+; display# x ; display# y ; display# z ; newline
+; nil
+}

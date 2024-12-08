@@ -1,0 +1,28 @@
+% Objects have access to both static AND instance members.
+
+define A = class
+    static a_static = 3
+    field a_field
+    method a_init = proc(a) {
+        set a_field = a;
+        this
+    }
+end
+
+define B = class extends A
+    static b_static = 4
+    field b_field
+    method b_init = proc(a, b) {
+        .a_init(a);
+        set b_field = b;
+        this
+    }
+end
+
+define b = .<new B>b_init(1, 2)
+<b>a_static     % 3
+<b>a_field      % 1
+<b>b_static     % 4
+<b>b_field      % 2
+
+% An object's environment must somehow include its class's static environment!

@@ -1,0 +1,49 @@
+% The following two expressions are not equivalent.
+%
+%    .<c>f(...)
+%    <c>.f(...)
+%
+% Consider the following definitions of f and c.
+
+define f = proc(t) *(2,t)
+define c = class
+    static x = 3
+    static f = proc(t) t
+end
+
+% The top-level f returns double the passed value.
+% c's static f returns the passed value.  c also has a static x set to 3.
+%
+% Now let's muddy things up by binding a local x and then call f using the first
+% syntax above.
+
+let
+    x = 5
+in
+    .<c>f(x)   % 5
+
+% The result is 5.  This tells us that the actual parameters were evaluated in
+% the current environment (x is 5), but f was evaluated in c's environment
+% because the proc did not double the result.  In other words the following
+% expressions are equivalent.
+%
+%   .<c>f(x)
+%   .{<c>f}(x)
+%
+% Let's run the same experiment with the second syntax.
+
+let
+    x = 5
+in
+    <c>.f(x)   % 3
+
+% Now both f and x are evaluated in c's environment; x evaluates to 3 and does
+% not get doubled.  The entire AppExp is evaluated within c's environment.  In
+% other words, the following expressions are equivalent.
+%
+%   <c>.f(x)
+%   <c>{.f(x)}
+%
+% The difference between .<c>f(x) and <c>.f(x) is the environment in which the
+% actual parameters are evaluated.  The first evaluates them in the current
+% environment.  The second evaluates them in the specified environment.

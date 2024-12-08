@@ -1,0 +1,13 @@
+define A = class
+  static x = 0
+end
+
+define B = class extends A
+  static x = 1
+
+  % Modify so one x in RHS refers to B's static x, the other should
+  % refer to the passed x.
+  method foo = proc(x) +(x, x)
+end
+
+% Add code to test your solution.

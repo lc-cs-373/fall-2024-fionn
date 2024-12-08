@@ -1,0 +1,76 @@
+% Because of shadowing, languages often provide a mechanism for "de-shadowing"
+% (illuminating?).  That is, a mechanism for accessing a variable from within a
+% scope where it is shadowed.
+%
+% OBJ binds special symbols to specific environments (or things that have
+% environments).  This allows us to explicitly resolve a symbol in a specific
+% environment, thus breaking out of the current scope.  OBJ automatically
+% defines the following symbols (which are read-only and reserved):
+%
+%   | SYMBOL      | BOUND TO        |
+%   | ----------- | --------------- |
+%   | self        | Base object     |
+%   | this        | Current object  |
+%   | myclass     | Current class   |
+%   | super       | Super object    |
+%   | superclass  | Super class     |
+%
+
+% Example: self -> see polymorphism
+
+% Example: this
+define A = class
+    field x
+    method foo = proc(x) {
+        set <this>x = x
+    }
+end
+define a = new A
+.<a>foo(3)
+<a>x    % 3
+
+% Example: myclass
+define B = class
+    static x = 3
+    field x
+    method foo = proc(x) {
+        set <myclass>x = x
+    }
+end
+define b = new B
+.<b>foo(4)
+<b>x    % nil
+<B>x    % 4
+
+% Example: super
+define C = class extends B
+    field x
+    method foo = proc(x) {
+        set <super>x = x ;
+        .<super>foo(add1(x))
+    }
+end
+define c = new C
+.<c>foo(3)
+<c>x            % nil
+<<c>super>x     % 3
+<C>x            % 4
+
+% Example: superclass
+define G = class
+    static x = 5
+    field x
+end
+define H = class extends G
+    static x = 6
+    field x
+    method foo = proc(x) {
+        set <superclass>x = x
+    }
+end
+define h = new H
+.<h>foo(3)
+<h>x        % nil
+<<h>super>x % nil
+<H>x        % 6
+<G>x        % 3
