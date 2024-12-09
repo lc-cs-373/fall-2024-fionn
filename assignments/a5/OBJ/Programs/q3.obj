@@ -18,6 +18,8 @@ define C = class extends B
 end
 
 % Add code to test your solution
-<new B>.foo(6)
+define o = new B
+<o>.foo(6)
+<o>x
 <B>x
-<C>x
+<<o>myclass>x

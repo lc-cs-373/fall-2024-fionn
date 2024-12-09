@@ -10,7 +10,7 @@ define B = class extends A
   % passed x.  In other words, a new subclass of B that declares an x, when
   % foo is called on it, the subclass's x is modified, not the one in the
   % B part of the object.
-  method foo = proc(x) set x = x
+  method foo = proc(x) set <self>x = x
 end
 
 define C = class extends B
@@ -20,3 +20,12 @@ define C = class extends B
 end
 
 % Add code to test your solution
+define b = new B
+define c = <new C>.init()
+<b>.foo(0)
+<b>x
+<B>x
+<c>.foo(6)
+<<c>super>.foo(10)
+<c>x
+<C>x

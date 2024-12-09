@@ -12,3 +12,5 @@ define B = class extends A
 end
 
 % Add code to test your solution
+<new A>.foo()
+<new B>.foo()
