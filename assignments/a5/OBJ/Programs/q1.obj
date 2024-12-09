@@ -9,7 +9,9 @@ define B = class extends A
   % Don't use the symbol A, because we'll probably rename
   % A later (terrible name), and we don't want to have to
   % update this line when we do.
-  static y = x
+
+  static y = <superclass>x
 end
 
 % Add code to test your solution
+<B>y
