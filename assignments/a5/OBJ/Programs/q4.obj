@@ -22,9 +22,12 @@ end
 % Add code to test your solution
 define b = new B
 define c = <new C>.init()
+
 <b>.foo(0)
 <b>x
+
 <B>x
+
 <c>.foo(6)
 <<c>super>.foo(10)
 <c>x

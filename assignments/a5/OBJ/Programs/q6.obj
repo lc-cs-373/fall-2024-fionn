@@ -13,7 +13,10 @@ in
     static x = 1
 
     % Modify so one reference to x below refers to the one defined in let.
-    method foo = proc() +(x, x)
+    method foo = proc() +(x, <!@>x)
   end
 
 % Add code to test your solution
+define b = new B
+
+<b>.foo()
